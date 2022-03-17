@@ -17,9 +17,9 @@ function makeStrings(arr) {
   let approved = [];
 
   arr.map((person) => {
-    if (person.age < 18) approved.push(person.name + " is under age!");
+    if (person.age < 18) approved.push(person.name + " is under age!!");
     else if (person.age >= 18)
-      approved.push(person.name + " can go to the Matrix");
+      approved.push(person.name + " can go to The Matrix");
   });
   return approved;
 }
