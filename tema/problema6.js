@@ -9,10 +9,7 @@ const duplicates = [1, 2, 3, 3, 2, 1, 2, 5, 3, 6, 7, 1, 9, 6];
 
 function removeDuplicates(arr) {
   // your code here
-
-  return arr.sort().filter((number, i, array) => {
-    return number != array[i - 1];
-  });
+  return arr.filter((value, index) => arr.indexOf(value) === index);
 }
 
 const uniqueValues = removeDuplicates(duplicates);
