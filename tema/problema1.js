@@ -18,16 +18,28 @@ const Person = {
       horsePower: 316,
       capacity: 2996,
     },
+    house: {
+      city: "Iasi",
+      location: "Copou",
+    },
   },
 };
-
-function freeze(object) {
+function isObject1(val) {
+  if (val === null) {
+    return false;
+  }
+  return typeof val === "function" || typeof val === "object";
+}
+function deepFreezeObject(obj) {
   // your code here;
-  Object.freeze(object);
-  Object.freeze(object.car);
+  if (isObject1(obj) && !Object.isFrozen(obj)) {
+    Object.keys(obj).forEach((name) => deepFreezeObject(obj[name]));
+    Object.freeze(obj);
+  }
+  return obj;
 }
 
-freeze(Person);
+deepFreezeObject(Person);
 Person.name = "Calin";
 Person.car.make = "Mercedes";
 console.log(Person); // nothing should change
