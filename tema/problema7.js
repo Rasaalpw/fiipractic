@@ -23,10 +23,7 @@ const wishlist = [
 
 function helpSanta(list) {
   // your code here
-  let sum = 0;
-  return list
-    .map((item) => item.price)
-    .reduce((prev, curr) => prev + curr, sum);
+  return list.map((item) => item.price).reduce((prev, curr) => prev + curr, 0);
 }
 const neededBudget = helpSanta(wishlist);
 console.log(neededBudget);
