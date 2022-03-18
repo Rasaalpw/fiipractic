@@ -42,4 +42,10 @@ function deepFreezeObject(obj) {
 deepFreezeObject(Person);
 Person.name = "Calin";
 Person.car.make = "Mercedes";
+
+/*
+  Person.engine.capacity = -1;
+  Cannot set properties of undefined (setting 'capacity')
+  */
+
 console.log(Person); // nothing should change
