@@ -14,14 +14,13 @@
 
 function makeStrings(arr) {
   // Your code here
-  let approved = [];
-
-  arr.map((person) => {
-    if (person.age < 18) approved.push(person.name + " is under age!!");
-    else if (person.age >= 18)
-      approved.push(person.name + " can go to The Matrix");
+  let list = arr.map((arr) => {
+    if (arr.age >= 18) {
+      return arr.name + " can go to The Matrix!!";
+    }
+    return arr.name + " is under age!!";
   });
-  return approved;
+  return list;
 }
 
 console.log(
