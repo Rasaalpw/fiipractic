@@ -1,38 +1,136 @@
-* {
+*,
+:before,
+:after {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: azure;
+  background-color: darkgray;
 }
 
 body,
 button {
-  font: 14px, Arial;
+  font: 14px Arial;
+}
+
+button {
+  cursor: pointer;
 }
 
 #wrapper {
-  max-width: 1170px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
-header {
+#wrapper > header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 20px 0 10px;
+  margin: 40px 0 20px;
 }
 
-header > button {
+#wrapper > header > button {
   background-color: black;
   border-width: 0;
   border-radius: 4px;
   color: white;
-  padding: 5px;
+  padding: 5px 15px;
   width: auto;
+}
+
+[name="calendar-current-month"] {
+  flex: 1;
 }
 
 button > i {
   padding-right: 10px;
+}
+
+#wrapper > header + section {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+#wrapper > header + section aside {
+  padding: 0 20px 0 0;
+  width: 25%;
+}
+
+#wrapper > header + section > main {
+  background-color: white;
+  padding: 20px;
+  width: 75%;
+}
+
+aside > div {
+  background-color: #fff;
+  padding: 20px;
+}
+
+aside > div + div {
+  margin-top: 20px;
+}
+
+#calendar-wrapper {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+}
+
+#calendar-wrapper section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+#calendar-wrapper section > div {
+  padding: 3px 0;
+  position: relative;
+  text-align: center;
+  width: calc(100% / 7);
+}
+#calendar-wrapper section > div:nth-child(-1n + 7) {
+  font-weight: bold;
+  cursor: default;
+}
+#calendar-wrapper section > div:nth-child(1n + 8):not(.dim) {
+  cursor: pointer;
+}
+#calendar-wrapper section > div:nth-child(1n + 8):not(.dim):hover {
+  background-color: grey;
+}
+#calendar-wrapper section > div.dim {
+  color: gray;
+  cursor: default;
+}
+#calendar-wrapper section > div.activeDay {
+  background-color: gray;
+}
+#calendar-wrapper section > div.hasEvents:after {
+  border: 2px solid red;
+  border-radius: 2px;
+  content: "";
+  height: 0;
+  position: absolute;
+  width: 0;
+}
+
+#calendar-wrapper header {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#calendar-wrapper header button {
+  background-color: transparent;
+  border: 0 none;
+  margin: 0 3px;
+}
+
+#calendar-wrapper .today {
+  color: red;
+  background-color: bisque;
 }
